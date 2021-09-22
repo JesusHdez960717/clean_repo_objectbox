@@ -1,4 +1,4 @@
-import 'package:clean_core/flutter/domain/IntIdentifier.dart';
+/*import 'package:clean_core/flutter/domain/IntIdentifier.dart';
 import 'package:objectbox/objectbox.dart';
 
 import 'ObjectBoxGeneralRepoImpl.dart';
@@ -55,3 +55,4 @@ class ObjectBoxGeneralRepoImplAsync<Entity extends IntIdentifier> {
     return count;
   }
 }
+*/
