@@ -3,12 +3,11 @@ import 'package:clean_core/flutter/app/repo/CRUDRespositoryInternal.dart';
 import 'package:clean_core/flutter/app/repo/entity/CleanCoreEntityExporter.dart';
 import 'package:objectbox/objectbox.dart';
 
-class ObjectBoxCRUDRespositoryInternalImpl<Entity extends BasicEntityObject>
+class ObjectBoxCRUDRespositoryInternal<Entity extends BasicEntityObject>
     extends CRUDRespositoryInternal<Entity> {
   final Box<Entity> _box;
 
-  ObjectBoxCRUDRespositoryInternalImpl(Store _store)
-      : _box = Box<Entity>(_store);
+  ObjectBoxCRUDRespositoryInternal(Store _store) : _box = Box<Entity>(_store);
 
   Box<Entity> get box => _box;
 
