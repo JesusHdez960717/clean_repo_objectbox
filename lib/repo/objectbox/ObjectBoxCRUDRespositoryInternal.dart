@@ -1,10 +1,8 @@
-import 'package:clean_core/flutter/app/PropertyChangeConstrains.dart';
-import 'package:clean_core/flutter/app/repo/CRUDRespositoryInternal.dart';
-import 'package:clean_core/flutter/app/repo/entity/CleanCoreEntityExporter.dart';
+import 'package:clean_core/clean_core.dart';
 import 'package:objectbox/objectbox.dart';
 
 class ObjectBoxCRUDRespositoryInternal<Entity extends BasicEntityObject>
-    extends CRUDRespositoryInternal<Entity> {
+    extends CRUDRepositoryExternal<Entity> {
   final Box<Entity> _box;
 
   ObjectBoxCRUDRespositoryInternal(Store _store) : _box = Box<Entity>(_store);

@@ -32,10 +32,10 @@ packages:
   clean_core:
     dependency: transitive
     description:
-      path: "../../clean_core"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: clean_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1-RELEASE.20211011"
   clean_repo_objectbox:
     dependency: "direct main"
     description:
