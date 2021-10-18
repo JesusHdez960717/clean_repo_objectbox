@@ -16,7 +16,7 @@ dependencies:
   objectbox: ^1.2.0
   objectbox_flutter_libs: any
   path_provider: ^2.0.3
-  clean_core: ^1.0.1-RELEASE.20211011
+  clean_core: ^1.1.0-RELEASE.20211017
 
 dev_dependencies:
   flutter_test:

@@ -11,13 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.17.0
+  faker: ^2.0.0
+  objectbox: ^1.2.0
+  objectbox_flutter_libs: any
+  path_provider: ^2.0.3
+  clean_core: ^1.1.0-RELEASE.20211017
 
   clean_repo_objectbox:
-    # When depending on this package from a real application you should use:
-    #   clean_repo_objectbox: ^x.y.z
-    # See https://dart.dev/tools/pub/dependencies#version-constraints
-    # The example app is bundled with the plugin so we use a path dependency on
-    # the parent directory to use the current plugin's version.
     path: ../
 
   # The following adds the Cupertino Icons font to your application.
