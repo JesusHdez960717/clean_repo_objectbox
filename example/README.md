@@ -1,0 +1,2 @@
+# clean_repo_objectbox_example
+Basic Example of clean_repo_objectbox library
