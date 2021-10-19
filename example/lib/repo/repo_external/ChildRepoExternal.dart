@@ -1,5 +1,5 @@
-import 'package:clean_core/clean_core.dart';
+import 'package:clean_repo_objectbox/CleanObjectBoxExporter.dart';
 
 import '../objectbox_repo_exporter.dart';
 
-abstract class ChildRepoExternal extends CRUDRepositoryExternal<ChildEntity> {}
+abstract class ChildRepoExternal extends ObjectBoxCRUDRepositoryExternal<ChildEntity> {}
