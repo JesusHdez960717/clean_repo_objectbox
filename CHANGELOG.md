@@ -1,3 +1,2 @@
-## 0.0.1
-
-* TODO: Describe initial release.
+* 1.0.0.RELEASE.20211019: Initial develop of framework.
+  * **NEW** Basics of repo.objectbox
