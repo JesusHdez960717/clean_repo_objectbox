@@ -1,5 +1,5 @@
 name: clean_repo_objectbox
-description: `clean_repo_objectbox` pretende ser un framework para facilitar y abstraer el uso de la BD ObjectBox en aplicaciones con Clean Arquitecture
+description: "`clean_repo_objectbox` pretende ser un framework para facilitar y abstraer el uso de la BD ObjectBox en aplicaciones con Clean Arquitecture"
 version: 0.0.1-RELEASE.20211019
 homepage: https://github.com/JesusHdezWaterloo/clean_repo_objectbox
 
