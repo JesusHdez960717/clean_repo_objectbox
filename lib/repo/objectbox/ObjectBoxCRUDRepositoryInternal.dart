@@ -1,11 +1,11 @@
 import 'package:clean_core/clean_core.dart';
 import 'package:objectbox/objectbox.dart';
 
-class ObjectBoxCRUDRespositoryInternal<Entity extends BasicEntityObject>
+class ObjectBoxCRUDRepositoryExternal<Entity extends BasicEntityObject>
     extends CRUDRepositoryExternal<Entity> {
   final Box<Entity> _box;
 
-  ObjectBoxCRUDRespositoryInternal(Store _store) : _box = Box<Entity>(_store);
+  ObjectBoxCRUDRepositoryExternal(Store _store) : _box = Box<Entity>(_store);
 
   Box<Entity> get box => _box;
 
