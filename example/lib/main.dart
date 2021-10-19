@@ -10,9 +10,9 @@ void main() => runApp(MyApp()); //flutter run -t lib/main.dart
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'OB Example',
+        title: 'ObjectBox Example',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: MyHomePage(title: 'OB Example'),
+        home: MyHomePage(title: 'ObjectBox Example'),
       );
 }
 
