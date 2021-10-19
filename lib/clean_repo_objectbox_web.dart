@@ -31,7 +31,8 @@ class CleanRepoObjectboxWeb {
       default:
         throw PlatformException(
           code: 'Unimplemented',
-          details: 'clean_repo_objectbox for web doesn\'t implement \'${call.method}\'',
+          details:
+              'clean_repo_objectbox for web doesn\'t implement \'${call.method}\'',
         );
     }
   }
