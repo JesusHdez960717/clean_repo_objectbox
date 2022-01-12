@@ -3,7 +3,6 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 //flutter pub run build_runner build
 void main() => runApp(MyApp()); //flutter run -t lib/main.dart
 
@@ -39,16 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
     _noteInputController.text = '';
   }
 
-  bool init = false;
-
-  @override
-  void initState() {
-    super.initState();
-    ObjectBoxCoreModule.init().then((value) {
-      parentUseCase = ObjectBoxCoreModule.PARENT_USECASE;
-      init = true;
-      setState(() {});
-    });
+  Future initialize() async {
+    await ObjectBoxCoreModule.init();
+    parentUseCase = ObjectBoxCoreModule.PARENT_USECASE;
   }
 
   @override
@@ -71,65 +63,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
 
-        body: init == false
-            ? Container(
-                height: 200,
-                width: 200,
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              )
-            : Column(children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.0),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    hintText: 'Enter a new note'),
-                                controller: _noteInputController,
-                                onSubmitted: (value) =>
-                                    _addNote(_noteInputController.text),
-                                // Provide a Key for the integration test
-                                key: Key('input'),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 10.0, right: 10.0),
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  'Tap a note to remove it',
-                                  style: TextStyle(
-                                    fontSize: 11.0,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Expanded(
-                    child: StreamBuilder<List<ParentDomain>>(
-                        stream: ObjectBoxCoreModule.PARENT_USECASE
-                            .streamController()
-                            .stream,
-                        builder: (context, snapshot) => ListView.builder(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            itemCount:
-                                snapshot.hasData ? snapshot.data!.length : 0,
-                            itemBuilder: _itemBuilder(snapshot.data ?? []))))
-              ]),
+        body: FutureBuilder(
+          future: initialize(),
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return _buildBody();
+            }
+          },
+        ),
         // We need a separate submit button because flutter_driver integration
         // test doesn't support submitting a TextField using "enter" key.
         // See https://github.com/flutter/flutter/issues/9383
@@ -140,46 +85,86 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
 
+  _buildBody() {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: TextField(
+            decoration: InputDecoration(hintText: 'Enter a new note'),
+            controller: _noteInputController,
+            onSubmitted: (value) => _addNote(_noteInputController.text),
+            // Provide a Key for the integration test
+            key: Key('input'),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 10.0, right: 20.0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              'Tap a note to remove it',
+              style: TextStyle(
+                fontSize: 11.0,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+        ),
+        StreamBuilder<List<ParentDomain>>(
+          stream: ObjectBoxCoreModule.PARENT_USECASE.streamController().stream,
+          builder: (context, snapshot) => ListView.builder(
+            shrinkWrap: true,
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            itemCount: snapshot.hasData ? snapshot.data!.length : 0,
+            itemBuilder: _itemBuilder(snapshot.data ?? []),
+          ),
+        )
+      ],
+    );
+  }
+
   GestureDetector Function(BuildContext, int) _itemBuilder(
-          List<ParentDomain> notes) =>
-      (BuildContext context, int index) => GestureDetector(
-            onTap: () => parentUseCase.destroy(notes[index]),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border:
-                            Border(bottom: BorderSide(color: Colors.black12))),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 18.0, horizontal: 10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            notes[index].name,
+      List<ParentDomain> notes) {
+    return (BuildContext context, int index) => GestureDetector(
+          onTap: () => parentUseCase.destroy(notes[index]),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                      border:
+                          Border(bottom: BorderSide(color: Colors.black12))),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          notes[index].name,
+                          style: TextStyle(
+                            fontSize: 15.0,
+                          ),
+                          // Provide a Key for the integration test
+                          key: Key('list_item_$index'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 5.0),
+                          child: Text(
+                            'Added on ${DateFormat.yMMMd().format(notes[index].bornDay)}',
                             style: TextStyle(
-                              fontSize: 15.0,
-                            ),
-                            // Provide a Key for the integration test
-                            key: Key('list_item_$index'),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: Text(
-                              'Added on ${DateFormat.yMMMd().format(notes[index].bornDay)}',
-                              style: TextStyle(
-                                fontSize: 12.0,
-                              ),
+                              fontSize: 12.0,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
-          );
+              ),
+            ],
+          ),
+        );
+  }
 }
