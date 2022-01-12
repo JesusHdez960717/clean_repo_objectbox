@@ -1,7 +1,6 @@
 import 'package:clean_repo_objectbox_example/objectbox_example_exporter.dart';
-import 'package:objectbox/objectbox.dart';
 
-import '../../objectbox.g.dart';
+import '../../../objectbox.g.dart';
 
 class ObjectBoxExampleRepoModule {
   static late final Store

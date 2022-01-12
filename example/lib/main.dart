@@ -1,8 +1,8 @@
+import 'package:clean_repo_objectbox_example/objectbox_example_exporter.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'app/objectbox_app_exporter.dart';
 
 //flutter pub run build_runner build
 void main() => runApp(MyApp()); //flutter run -t lib/main.dart

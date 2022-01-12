@@ -1,7 +1,7 @@
 import 'dart:async';
+
 import 'package:clean_core/clean_core.dart';
-import 'package:clean_repo_objectbox_example/app/objectbox_app_exporter.dart';
-import 'package:clean_repo_objectbox_example/repo/objectbox_repo_exporter.dart';
+import 'package:clean_repo_objectbox_example/objectbox_example_exporter.dart';
 
 class ParentRepoImpl extends DefaultCRUDRepo<ParentDomain, ParentEntity>
     implements ParentRepo {
