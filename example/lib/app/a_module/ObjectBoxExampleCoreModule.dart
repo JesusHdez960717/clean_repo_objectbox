@@ -1,6 +1,6 @@
-import '../usecase_def/ObjectBoxExampleUseCaseExporter.dart';
-import '../usecase_impl/ObjectBoxExampleUseCaseImplExporter.dart';
-import '../../repo/module/ObjectBoxExampleRepoModule.dart';
+import 'package:clean_repo_objectbox_example/repo/objectbox_repo_exporter.dart';
+
+import '../objectbox_app_exporter.dart';
 
 class ObjectBoxCoreModule {
   static late final ParentUseCase PARENT_USECASE;
