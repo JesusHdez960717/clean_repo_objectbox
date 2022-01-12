@@ -1,7 +1,7 @@
 library objectbox_app_exporter;
 
-export 'a_module/ObjectBoxExampleCoreModule.dart';
-export 'b_domain/ObjectBoxExampleDomainExporter.dart';
-export 'c_usecase_def/ObjectBoxExampleUseCaseExporter.dart';
-export 'd_usecase_impl/ObjectBoxExampleUseCaseImplExporter.dart';
-export 'e_repo_def/ObjectBoxExampleRepoDefExporter.dart';
+export 'a_module/objectbox_example_core_module.dart';
+export 'b_domain/objectbox_example_domain_exporter.dart';
+export 'c_usecase_def/objectbox_example_use_case_exporter.dart';
+export 'd_usecase_impl/objectbox_example_usecase_impl_exporter.dart';
+export 'e_repo_def/objectbox_example_repodef_exporter.dart';

@@ -1,5 +1,5 @@
 library objectbox_example_repodef_exporter;
 
 //exporta los repo def
-export 'ChildRepo.dart';
-export 'ParentRepo.dart';
+export 'child_repo.dart';
+export 'parent_repo.dart';

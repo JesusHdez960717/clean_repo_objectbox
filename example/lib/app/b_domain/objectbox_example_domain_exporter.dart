@@ -1,5 +1,5 @@
 library objectbox_example_domain_exporter;
 
 //exporta los domain
-export 'ChildDomain.dart';
-export 'ParentDomain.dart';
+export 'child_domain.dart';
+export 'parent_domain.dart';
