@@ -8,7 +8,7 @@ class ParentRepoImpl extends DefaultCRUDRepo<ParentDomain, ParentEntity>
   late ParentRepoExternal _external;
 
   ParentRepoImpl(ParentRepoExternal repo)
-      : super(externalRepo: repo, converter: ParentEntity.CONVERTER) {
+      : super(externalRepo: repo, converter: ParentConverter.converter) {
     _external = repo;
   }
 
@@ -17,7 +17,7 @@ class ParentRepoImpl extends DefaultCRUDRepo<ParentDomain, ParentEntity>
     Stream<List<ParentDomain>> stream = _external.box
         .query()
         .watch(triggerImmediately: true)
-        .map((q) => ParentEntity.CONVERTER.toDomainAll(q.find()));
+        .map((q) => ParentConverter.converter.toDomainAll(q.find()));
     _listController.addStream(stream);
     return _listController;
   }
@@ -26,6 +26,24 @@ class ParentRepoImpl extends DefaultCRUDRepo<ParentDomain, ParentEntity>
     return _external.box
         .query()
         .watch(triggerImmediately: true)
-        .map((q) => ParentEntity.CONVERTER.toDomainAll(q.find()));
+        .map((q) => ParentConverter.converter.toDomainAll(q.find()));
+  }
+}
+
+class ParentConverter
+    extends DefaultGeneralConverter<ParentDomain, ParentEntity> {
+  static final ParentConverter converter = ParentConverter._();
+
+  ParentConverter._();
+
+  @override
+  ParentDomain toDomain(ParentEntity entity) {
+    return ParentDomain(
+        name: entity.name, bornDay: entity.bornDay, id: entity.id);
+  }
+
+  @override
+  ParentEntity toEntity(ParentDomain domain) {
+    return ParentEntity(domain.name, domain.bornDay, id: domain.id);
   }
 }
