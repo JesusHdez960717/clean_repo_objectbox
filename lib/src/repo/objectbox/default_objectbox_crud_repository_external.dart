@@ -91,4 +91,8 @@ class DefaultObjectBoxCRUDRepositoryExternal<Entity extends BasicEntityObject>
     print("${PropertyChangeConstrains.AFTER_COUNT}  => $count");
     return count;
   }
+
+  void init() {}
+
+  void dispose() {}
 }
