@@ -13,7 +13,10 @@ dependencies:
   objectbox: ^1.2.0
   objectbox_flutter_libs: any
   path_provider: ^2.0.3
-  clean_core: ^1.1.0-RELEASE.20211017
+
+  clean_core:
+    git:
+      url: https://github.com/JesusHdezWaterloo/clean-core-flutter.git
 
   clean_repo_objectbox:
     path: ../

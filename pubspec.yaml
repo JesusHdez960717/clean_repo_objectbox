@@ -1,6 +1,6 @@
 name: clean_repo_objectbox
-description: `clean_repo_objectbox` pretende ser un framework para facilitar y abstraer el uso de la BD ObjectBox en aplicaciones con Clean Arquitecture
-version: 0.0.1-RELEASE.20211019
+description: "`clean_repo_objectbox` pretende ser un framework para facilitar y abstraer el uso de la BD ObjectBox en aplicaciones con Clean Arquitecture"
+version: 0.1.0-SNAPSHOT.20220116
 homepage: https://github.com/JesusHdezWaterloo/clean_repo_objectbox
 
 environment:
@@ -16,7 +16,9 @@ dependencies:
   objectbox: ^1.2.0
   objectbox_flutter_libs: any
   path_provider: ^2.0.3
-  clean_core: ^1.1.0-RELEASE.20211017
+  clean_core:
+    git:
+      url: https://github.com/JesusHdezWaterloo/clean-core-flutter.git
 
 dev_dependencies:
   flutter_test:
