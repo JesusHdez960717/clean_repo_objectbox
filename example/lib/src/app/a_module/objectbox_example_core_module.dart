@@ -13,6 +13,7 @@ class ObjectBoxCoreModule {
               ParentUseCaseImpl(ObjectBoxExampleRepoModule.PARENT_REPO);
           /*CHILD_USECASE =
               ChildUseCaseImpl(ObjectBoxExampleRepoModule.CHILD_REPO);*/
+          return value;
         }) !=
         null;
     return initialized;
