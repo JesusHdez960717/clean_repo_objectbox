@@ -1,3 +1,5 @@
+* 0.1.3-RELEASE.20220206: Migrate to clean_core: ^1.2.3-RELEASE.20220206
+
 * 0.1.2-SNAPSHOT.20220116: Fix versions
   * **BUG FIX** :bug: : Fix clean/objectbox versions to latest.
 
