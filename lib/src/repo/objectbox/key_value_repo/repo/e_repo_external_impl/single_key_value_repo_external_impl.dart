@@ -1,10 +1,10 @@
 import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value_exporter.dart';
 import 'package:objectbox/objectbox.dart';
 
-class DefaultSingleKeyValueRepoExternal extends SingleKeyValueRepoExternal {
+class SingleKeyValueRepoExternalImpl extends SingleKeyValueRepoExternal {
   final Box<KeyValueEntity> _box;
 
-  DefaultSingleKeyValueRepoExternal(Store _store)
+  SingleKeyValueRepoExternalImpl(Store _store)
       : _box = Box<KeyValueEntity>(_store);
 
   Box<KeyValueEntity> get box => _box;
