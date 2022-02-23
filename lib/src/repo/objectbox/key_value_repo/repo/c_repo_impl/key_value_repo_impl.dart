@@ -3,27 +3,36 @@ import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value
 
 class KeyValueRepoImpl extends DefaultCRUDRepo<KeyValueDomain, KeyValueEntity>
     implements KeyValueRepo {
-  late KeyValueRepoExternal _external;
+  late KeyValueRepoExternal _external; //TODO: remove
 
-  KeyValueRepoImpl(KeyValueRepoExternal repo)
-      : super(externalRepo: repo, converter: KeyValueConverter.converter) {
+  KeyValueRepoImpl(
+      KeyValueRepoExternal repo, KeyValueSingleConverter kvConverter)
+      : super(externalRepo: repo, converter: KeyValueConverter(kvConverter)) {
     _external = repo;
   }
 }
 
 class KeyValueConverter
     extends DefaultGeneralConverter<KeyValueDomain, KeyValueEntity> {
-  static final KeyValueConverter converter = KeyValueConverter._();
+  KeyValueSingleConverter kvConverter;
 
-  KeyValueConverter._();
+  KeyValueConverter(this.kvConverter);
 
   @override
   KeyValueDomain toDomain(KeyValueEntity entity) {
-    //return KeyValueDomain(id: entity.id, key: entity.key, value: entity.value);
+    return KeyValueDomain(
+      id: entity.id,
+      key: kvConverter.stringToKey(entity.key),
+      value: kvConverter.stringToValue(entity.value),
+    );
   }
 
   @override
   KeyValueEntity toEntity(KeyValueDomain domain) {
-    //return KeyValueEntity(domain.key, domain.value, id: domain.id);
+    return KeyValueEntity(
+      kvConverter.keyToString(domain.key),
+      kvConverter.valueToString(domain.value),
+      id: domain.id,
+    );
   }
 }
