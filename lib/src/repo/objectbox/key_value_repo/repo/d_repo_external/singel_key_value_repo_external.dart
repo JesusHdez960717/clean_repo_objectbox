@@ -5,11 +5,9 @@ import 'package:objectbox/objectbox.dart';
 abstract class SingleKeyValueRepoExternal implements AbstractExternalRepo {
   Box<KeyValueEntity> get box;
 
-  String? read();
+  String? read(String key);
 
-  String update(String value);
+  String update(String key, String value);
 
-  String? destroy();
-
-  String get key;
+  String? destroy(String key);
 }
