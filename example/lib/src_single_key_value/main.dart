@@ -26,16 +26,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late BoolKeyValueUseCase UC;
+  late BoolKeyValueUseCase uc;
 
   Future initialize() async {
-    await KeyValueRepoModule.init();
-    UC = BoolKeyValueUseCaseImpl();
+    await KeyValueCoreModule.init();
+    uc = BoolKeyValueUseCaseImpl();
   }
 
   _changeValue() {
     setState(() {
-      UC.changeValue();
+      uc.changeValue();
     });
   }
 
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
             } else {
               return Center(
                 child: Text(
-                  UC.read().toString(),
+                  uc.read().toString(),
                 ),
               );
             }
