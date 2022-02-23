@@ -6,6 +6,7 @@ class KeyValueEntity extends BasicEntityObject {
   @Id()
   int id;
 
+  @Unique(onConflict: ConflictStrategy.replace)
   String key;
 
   String value;
