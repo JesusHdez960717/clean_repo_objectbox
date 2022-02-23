@@ -1,9 +1,9 @@
 import 'package:clean_core/clean_core.dart';
 
-class KeyValueDomain extends BasicDomainObject {
+class KeyValueDomain<K, V> extends BasicDomainObject {
   int id;
-  String key;
-  Object value;
+  K key;
+  V value;
 
   KeyValueDomain({required this.key, required this.value, this.id = 0});
 
