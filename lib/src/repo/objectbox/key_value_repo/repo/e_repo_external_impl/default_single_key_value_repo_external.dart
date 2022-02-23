@@ -3,22 +3,21 @@ import 'package:objectbox/objectbox.dart';
 
 class DefaultSingleKeyValueRepoExternal extends SingleKeyValueRepoExternal {
   final Box<KeyValueEntity> _box;
-  final String key;
 
-  DefaultSingleKeyValueRepoExternal(Store _store, this.key)
+  DefaultSingleKeyValueRepoExternal(Store _store)
       : _box = Box<KeyValueEntity>(_store);
 
   Box<KeyValueEntity> get box => _box;
 
   @override
-  String? read() {
-    return _read()?.value;
+  String? read(String key) {
+    return _read(key)?.value;
   }
 
   @override
-  String update(String value) {
+  String update(String key, String value) {
     //busco el entity ya existente
-    final entity = _read();
+    final entity = _read(key);
 
     //si devuelve null es que no existe, entonces inserto uno nuevo
     if (entity == null) {
@@ -33,7 +32,7 @@ class DefaultSingleKeyValueRepoExternal extends SingleKeyValueRepoExternal {
     return value;
   }
 
-  KeyValueEntity? _read() {
+  KeyValueEntity? _read(String key) {
     //busco el KeyValueEntity que tenga esa llave
     return _box
         .query(
@@ -44,9 +43,9 @@ class DefaultSingleKeyValueRepoExternal extends SingleKeyValueRepoExternal {
   }
 
   @override
-  String? destroy() {
+  String? destroy(String key) {
     //busco el entity ya existente
-    final entity = _read();
+    final entity = _read(key);
 
     //si ya existe lo elimino, si no no hago nada
     if (entity != null) {
