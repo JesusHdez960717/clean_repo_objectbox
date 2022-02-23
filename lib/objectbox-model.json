@@ -17,7 +17,9 @@
         {
           "id": "2:8997350121004715041",
           "name": "key",
-          "type": 9
+          "type": 9,
+          "flags": 34848,
+          "indexId": "1:7356114923904760"
         },
         {
           "id": "3:785379303733882058",
@@ -29,7 +31,7 @@
     }
   ],
   "lastEntityId": "1:2881626965864008822",
-  "lastIndexId": "0:0",
+  "lastIndexId": "1:7356114923904760",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,

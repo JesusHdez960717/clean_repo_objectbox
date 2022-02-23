@@ -1,7 +1,7 @@
 import 'package:clean_core/clean_core.dart';
 import 'package:objectbox/objectbox.dart';
 
-@Entity() // flutter pub run build_runner build
+@Entity() //flutter pub run build_runner build
 class KeyValueEntity extends BasicEntityObject {
   @Id()
   int id;
