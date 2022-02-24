@@ -4,60 +4,60 @@
 
 import 'dart:typed_data';
 
-import 'package:objectbox/flatbuffers/flat_buffers.dart' as fb;
+import 'package:flat_buffers/flat_buffers.dart' as fb;
 import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'src/repo/b_entities/Entities.dart';
+import 'src/repo/b_entities/entities.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 7640212212430165525),
+      id: const IdUid(1, 3495066968911145424),
       name: 'ChildEntity',
-      lastPropertyId: const IdUid(3, 5613571069985664983),
+      lastPropertyId: const IdUid(3, 8641405352430002326),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 7655155972333682733),
+            id: const IdUid(1, 217491309248229772),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3694810900544660690),
+            id: const IdUid(2, 5241512759374396314),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 5613571069985664983),
+            id: const IdUid(3, 8641405352430002326),
             name: 'parentFKId',
             type: 11,
             flags: 520,
-            indexId: const IdUid(1, 6733544651472391800),
+            indexId: const IdUid(1, 7416905356186923221),
             relationTarget: 'ParentEntity')
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(2, 5708363993491732527),
+      id: const IdUid(2, 7109991978524603100),
       name: 'ParentEntity',
-      lastPropertyId: const IdUid(3, 395486208661296490),
+      lastPropertyId: const IdUid(3, 824895190430008406),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 2445730450581400103),
+            id: const IdUid(1, 2799924688484374424),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 1096160155796008297),
+            id: const IdUid(2, 8454286627245417183),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 395486208661296490),
+            id: const IdUid(3, 824895190430008406),
             name: 'bornDay',
             type: 10,
             flags: 0)
@@ -86,8 +86,8 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(2, 5708363993491732527),
-      lastIndexId: const IdUid(1, 6733544651472391800),
+      lastEntityId: const IdUid(2, 7109991978524603100),
+      lastIndexId: const IdUid(1, 7416905356186923221),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
@@ -121,7 +121,8 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = ChildEntity(
-              const fb.StringReader().vTableGet(buffer, rootOffset, 6, ''),
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
           object.parentFK.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0);
@@ -150,7 +151,8 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = ParentEntity(
-              const fb.StringReader().vTableGet(buffer, rootOffset, 6, ''),
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
               DateTime.fromMillisecondsSinceEpoch(
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0)),
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));

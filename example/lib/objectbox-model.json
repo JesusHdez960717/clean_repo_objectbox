@@ -4,50 +4,50 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:7640212212430165525",
-      "lastPropertyId": "3:5613571069985664983",
+      "id": "1:3495066968911145424",
+      "lastPropertyId": "3:8641405352430002326",
       "name": "ChildEntity",
       "properties": [
         {
-          "id": "1:7655155972333682733",
+          "id": "1:217491309248229772",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:3694810900544660690",
+          "id": "2:5241512759374396314",
           "name": "name",
           "type": 9
         },
         {
-          "id": "3:5613571069985664983",
+          "id": "3:8641405352430002326",
           "name": "parentFKId",
           "type": 11,
           "flags": 520,
-          "indexId": "1:6733544651472391800",
+          "indexId": "1:7416905356186923221",
           "relationTarget": "ParentEntity"
         }
       ],
       "relations": []
     },
     {
-      "id": "2:5708363993491732527",
-      "lastPropertyId": "3:395486208661296490",
+      "id": "2:7109991978524603100",
+      "lastPropertyId": "3:824895190430008406",
       "name": "ParentEntity",
       "properties": [
         {
-          "id": "1:2445730450581400103",
+          "id": "1:2799924688484374424",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:1096160155796008297",
+          "id": "2:8454286627245417183",
           "name": "name",
           "type": 9
         },
         {
-          "id": "3:395486208661296490",
+          "id": "3:824895190430008406",
           "name": "bornDay",
           "type": 10
         }
@@ -55,8 +55,8 @@
       "relations": []
     }
   ],
-  "lastEntityId": "2:5708363993491732527",
-  "lastIndexId": "1:6733544651472391800",
+  "lastEntityId": "2:7109991978524603100",
+  "lastIndexId": "1:7416905356186923221",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
