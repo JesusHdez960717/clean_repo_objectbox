@@ -31,20 +31,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addNote(String text) {
     if (text.isEmpty) return;
-    ObjectBoxCoreModule.PARENT_USECASE.create(ParentDomain(
+    ObjectBoxExampleCoreModule.PARENT_USECASE.create(ParentDomain(
         name: text,
         bornDay: faker.date.dateTime(minYear: 1980, maxYear: 2000)));
     _noteInputController.text = '';
   }
 
   Future initialize() async {
-    await ObjectBoxCoreModule.init();
+    await ObjectBoxExampleCoreModule.init();
   }
 
   @override
   void dispose() {
     _noteInputController.dispose();
-    ObjectBoxCoreModule.PARENT_USECASE.streamController().close();
+    ObjectBoxExampleCoreModule.PARENT_USECASE.streamController().close();
     super.dispose();
   }
 
@@ -106,7 +106,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         StreamBuilder<List<ParentDomain>>(
-          stream: ObjectBoxCoreModule.PARENT_USECASE.streamController().stream,
+          stream: ObjectBoxExampleCoreModule.PARENT_USECASE
+              .streamController()
+              .stream,
           builder: (context, snapshot) => ListView.builder(
             shrinkWrap: true,
             padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -121,7 +123,8 @@ class _MyHomePageState extends State<MyHomePage> {
   GestureDetector Function(BuildContext, int) _itemBuilder(
       List<ParentDomain> notes) {
     return (BuildContext context, int index) => GestureDetector(
-          onTap: () => ObjectBoxCoreModule.PARENT_USECASE.destroy(notes[index]),
+          onTap: () =>
+              ObjectBoxExampleCoreModule.PARENT_USECASE.destroy(notes[index]),
           child: Row(
             children: <Widget>[
               Expanded(

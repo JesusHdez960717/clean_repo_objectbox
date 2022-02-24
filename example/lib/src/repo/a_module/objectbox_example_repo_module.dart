@@ -8,12 +8,14 @@ class ObjectBoxExampleRepoModule {
 
   static late final ParentRepo PARENT_REPO;
 
-  //static late final ChildRepo CHILD_REPO;
-
   static Future<Store> init() async {
+    print('iniciando ObjectBoxExampleRepoModule');
     STORE = await openStore();
-    PARENT_REPO = ParentRepoImpl(ParentRepoExternalImpl(STORE));
-
+    print('iniciado STORE');
+    ParentRepoExternal external = ParentRepoExternalImpl(STORE);
+    print('iniciado external');
+    PARENT_REPO = ParentRepoImpl(external);
+    print('iniciado PARENT_REPO');
     return STORE;
   }
 
