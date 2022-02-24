@@ -1,8 +1,12 @@
-import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/repo/key_value_repo_exporter.dart';
+import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
 class KeyValueCoreModule {
+  static late KeyValueUseCase keyValueUC;
+
   static Future init({String directory = ""}) async {
     await KeyValueRepoModule.init(directory: directory);
+
+    keyValueUC = KeyValueUseCaseImpl(KeyValueRepoModule.keyValueRepo);
   }
 
   static void dispose() {

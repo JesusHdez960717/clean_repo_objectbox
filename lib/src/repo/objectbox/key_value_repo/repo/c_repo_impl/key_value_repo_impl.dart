@@ -3,8 +3,7 @@ import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value
 
 class KeyValueRepoImpl extends DefaultCRUDRepo<KeyValueDomain, KeyValueEntity>
     implements KeyValueRepo {
-  KeyValueRepoImpl(
-      KeyValueRepoExternal repo, SingleKeyValueConverter kvConverter)
+  KeyValueRepoImpl(KeyValueRepoExternal repo)
       : super(externalRepo: repo, converter: KeyValueConverter.converter);
 }
 

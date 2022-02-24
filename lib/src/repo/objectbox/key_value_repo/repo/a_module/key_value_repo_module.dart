@@ -10,6 +10,8 @@ class KeyValueRepoModule {
 
   static const _KeyValueDir = "/key_value_dir";
 
+  static late KeyValueRepo keyValueRepo;
+
   static Future<bool> init({String directory = ""}) async {
     //obtiene el directorio por defecto
     Directory defaultDir = await defaultStoreDirectory();
@@ -21,6 +23,10 @@ class KeyValueRepoModule {
     dbDir = await dbDir.create(recursive: true);
 
     _STORE = await openStore(directory: dbDir.path);
+
+    KeyValueRepoExternal keyValueExternalRepo =
+        KeyValueRepoExternalImpl(_STORE);
+    keyValueRepo = KeyValueRepoImpl(keyValueExternalRepo);
 
     return _STORE != null;
   }
