@@ -4,50 +4,23 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:3495066968911145424",
-      "lastPropertyId": "3:8641405352430002326",
-      "name": "ChildEntity",
-      "properties": [
-        {
-          "id": "1:217491309248229772",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:5241512759374396314",
-          "name": "name",
-          "type": 9
-        },
-        {
-          "id": "3:8641405352430002326",
-          "name": "parentFKId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "1:7416905356186923221",
-          "relationTarget": "ParentEntity"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "2:7109991978524603100",
-      "lastPropertyId": "3:824895190430008406",
+      "id": "1:7704328882412668822",
+      "lastPropertyId": "3:4766007682981152299",
       "name": "ParentEntity",
       "properties": [
         {
-          "id": "1:2799924688484374424",
+          "id": "1:1889961501604709251",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:8454286627245417183",
+          "id": "2:6247864625482191621",
           "name": "name",
           "type": 9
         },
         {
-          "id": "3:824895190430008406",
+          "id": "3:4766007682981152299",
           "name": "bornDay",
           "type": 10
         }
@@ -55,8 +28,8 @@
       "relations": []
     }
   ],
-  "lastEntityId": "2:7109991978524603100",
-  "lastIndexId": "1:7416905356186923221",
+  "lastEntityId": "1:7704328882412668822",
+  "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
