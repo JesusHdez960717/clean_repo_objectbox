@@ -9,31 +9,32 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'src/repo/b_entities/entities.dart';
+import 'src/repo/objectbox/key_value_repo/repo/b_entity/entities.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 7704328882412668822),
-      name: 'ParentEntity',
-      lastPropertyId: const IdUid(3, 4766007682981152299),
+      id: const IdUid(1, 2881626965864008822),
+      name: 'KeyValueEntity',
+      lastPropertyId: const IdUid(3, 785379303733882058),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 1889961501604709251),
+            id: const IdUid(1, 4373838254075003834),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 6247864625482191621),
-            name: 'name',
+            id: const IdUid(2, 8997350121004715041),
+            name: 'key',
             type: 9,
-            flags: 0),
+            flags: 34848,
+            indexId: const IdUid(1, 7356114923904760)),
         ModelProperty(
-            id: const IdUid(3, 4766007682981152299),
-            name: 'bornDay',
-            type: 10,
+            id: const IdUid(3, 785379303733882058),
+            name: 'value',
+            type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -60,8 +61,8 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(1, 7704328882412668822),
-      lastIndexId: const IdUid(0, 0),
+      lastEntityId: const IdUid(1, 2881626965864008822),
+      lastIndexId: const IdUid(1, 7356114923904760),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
@@ -73,20 +74,21 @@ ModelDefinition getObjectBoxModel() {
       version: 1);
 
   final bindings = <Type, EntityDefinition>{
-    ParentEntity: EntityDefinition<ParentEntity>(
+    KeyValueEntity: EntityDefinition<KeyValueEntity>(
         model: _entities[0],
-        toOneRelations: (ParentEntity object) => [],
-        toManyRelations: (ParentEntity object) => {},
-        getId: (ParentEntity object) => object.id,
-        setId: (ParentEntity object, int id) {
+        toOneRelations: (KeyValueEntity object) => [],
+        toManyRelations: (KeyValueEntity object) => {},
+        getId: (KeyValueEntity object) => object.id,
+        setId: (KeyValueEntity object, int id) {
           object.id = id;
         },
-        objectToFB: (ParentEntity object, fb.Builder fbb) {
-          final nameOffset = fbb.writeString(object.name);
+        objectToFB: (KeyValueEntity object, fb.Builder fbb) {
+          final keyOffset = fbb.writeString(object.key);
+          final valueOffset = fbb.writeString(object.value);
           fbb.startTable(4);
           fbb.addInt64(0, object.id);
-          fbb.addOffset(1, nameOffset);
-          fbb.addInt64(2, object.bornDay.millisecondsSinceEpoch);
+          fbb.addOffset(1, keyOffset);
+          fbb.addOffset(2, valueOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -94,11 +96,11 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
 
-          final object = ParentEntity(
+          final object = KeyValueEntity(
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 6, ''),
-              DateTime.fromMillisecondsSinceEpoch(
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0)),
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 8, ''),
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
 
           return object;
@@ -108,17 +110,17 @@ ModelDefinition getObjectBoxModel() {
   return ModelDefinition(model, bindings);
 }
 
-/// [ParentEntity] entity fields to define ObjectBox queries.
-class ParentEntity_ {
-  /// see [ParentEntity.id]
+/// [KeyValueEntity] entity fields to define ObjectBox queries.
+class KeyValueEntity_ {
+  /// see [KeyValueEntity.id]
   static final id =
-      QueryIntegerProperty<ParentEntity>(_entities[0].properties[0]);
+      QueryIntegerProperty<KeyValueEntity>(_entities[0].properties[0]);
 
-  /// see [ParentEntity.name]
-  static final name =
-      QueryStringProperty<ParentEntity>(_entities[0].properties[1]);
+  /// see [KeyValueEntity.key]
+  static final key =
+      QueryStringProperty<KeyValueEntity>(_entities[0].properties[1]);
 
-  /// see [ParentEntity.bornDay]
-  static final bornDay =
-      QueryIntegerProperty<ParentEntity>(_entities[0].properties[2]);
+  /// see [KeyValueEntity.value]
+  static final value =
+      QueryStringProperty<KeyValueEntity>(_entities[0].properties[2]);
 }
