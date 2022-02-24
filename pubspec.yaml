@@ -1,11 +1,11 @@
 name: clean_repo_objectbox
 description: "`clean_repo_objectbox` pretende ser un framework para facilitar y abstraer el uso de la BD ObjectBox en aplicaciones con Clean Arquitecture"
-version: 0.1.4-RELEASE.20220206
+version: 0.2.0-SNAPSHOT.20220223
 homepage: https://github.com/JesusHdezWaterloo/clean_repo_objectbox
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
-  flutter: ">=1.22.0"
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=2.8.0"
 
 dependencies:
   flutter:
