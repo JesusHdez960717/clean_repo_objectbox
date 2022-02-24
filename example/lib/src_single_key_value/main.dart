@@ -3,6 +3,8 @@ import 'package:clean_repo_objectbox_example/src_single_key_value/bool_key_value
 import 'package:flutter/material.dart';
 
 import 'bool_key_value_usecase.dart';
+import 'int_key_value_usecase.dart';
+import 'int_key_value_usecase_impl.dart';
 
 void main() =>
     runApp(MyApp()); //flutter run -t lib/src_single_key_value/main.dart
@@ -26,16 +28,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late BoolKeyValueUseCase uc;
+  late BoolKeyValueUseCase ucBool;
+  late IntKeyValueUseCase ucInt;
 
   Future initialize() async {
     await KeyValueCoreModule.init();
-    uc = BoolKeyValueUseCaseImpl();
+    ucBool = BoolKeyValueUseCaseImpl();
+    ucInt = IntKeyValueUseCaseImpl();
   }
 
   _changeValue() {
     setState(() {
-      uc.changeValue();
+      ucBool.changeValue();
+      ucInt.changeValue();
     });
   }
 
@@ -52,10 +57,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: CircularProgressIndicator(),
               );
             } else {
-              return Center(
-                child: Text(
-                  uc.read().toString(),
-                ),
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    ucBool.read().toString(),
+                  ),
+                  Text(
+                    ucInt.read().toString(),
+                  ),
+                ],
               );
             }
           },
