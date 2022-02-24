@@ -18,10 +18,7 @@ class DefaultObjectBoxCRUDRepositoryExternal<Entity extends BasicEntityObject>
   final Box<Entity> _box;
 
   DefaultObjectBoxCRUDRepositoryExternal(Store _store)
-      : _box = Box<Entity>(_store) {
-    print('INICIADO DefaultObjectBoxCRUDRepositoryExternal');
-    print('count ${_box.count()}');
-  }
+      : _box = Box<Entity>(_store);
 
   Box<Entity> get box => _box;
 
