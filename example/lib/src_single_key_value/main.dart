@@ -67,6 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     ucInt.read().toString(),
                   ),
+                  ...KeyValueCoreModule.keyValueUC
+                      .findAll()
+                      .map(
+                        (e) => ListTile(
+                          title: Text(e.key),
+                          subtitle: Text(e.value),
+                        ),
+                      )
+                      .toList(),
                 ],
               );
             }
