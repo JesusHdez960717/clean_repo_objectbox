@@ -198,7 +198,7 @@ packages:
     source: hosted
     version: "1.0.0"
   flat_buffers:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flat_buffers
       url: "https://pub.dartlang.org"
@@ -562,4 +562,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.15.0 <3.0.0"
-  flutter: ">=2.5.0"
+  flutter: ">=2.8.0"

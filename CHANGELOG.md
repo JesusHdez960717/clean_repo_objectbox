@@ -1,3 +1,5 @@
+* 0.2.1-SNAPSHOT.20220223: Added `flat_buffers` to `pubspec.yaml` to publish
+
 * 0.2.0-SNAPSHOT.20220223: Added Key/Value built in repo
     * **IMPROVEMENT** : [Issue **#6**](https://github.com/JesusHdezWaterloo/clean_repo_objectbox/issues/6) solved : Added a key/value repo for easy store data. See example for details at `example/lib/src_single_key_value`
     * **BUG ADD** :bug: : Old example not working :sob: .
