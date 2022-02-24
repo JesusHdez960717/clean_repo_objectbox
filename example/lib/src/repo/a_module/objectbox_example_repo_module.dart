@@ -11,13 +11,10 @@ class ObjectBoxExampleRepoModule {
   //static late final ChildRepo CHILD_REPO;
 
   static Future<Store> init() async {
-    Store store = await openStore().then((value) {
-      STORE = value;
-      PARENT_REPO = ParentRepoImpl(ParentRepoExternalImpl(STORE));
-      //CHILD_REPO = ChildRepoImpl();
-      return value;
-    });
-    return store;
+    STORE = await openStore();
+    PARENT_REPO = ParentRepoImpl(ParentRepoExternalImpl(STORE));
+
+    return STORE;
   }
 
   static void dispose() {

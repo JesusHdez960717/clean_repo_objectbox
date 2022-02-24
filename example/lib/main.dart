@@ -26,13 +26,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _noteInputController = TextEditingController();
-  late final ParentUseCase parentUseCase;
 
   final faker = Faker();
 
   void _addNote(String text) {
     if (text.isEmpty) return;
-    parentUseCase.create(ParentDomain(
+    ObjectBoxCoreModule.PARENT_USECASE.create(ParentDomain(
         name: text,
         bornDay: faker.date.dateTime(minYear: 1980, maxYear: 2000)));
     _noteInputController.text = '';
@@ -40,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future initialize() async {
     await ObjectBoxCoreModule.init();
-    parentUseCase = ObjectBoxCoreModule.PARENT_USECASE;
   }
 
   @override
@@ -62,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-
         body: FutureBuilder(
           future: initialize(),
           builder: (context, AsyncSnapshot snapshot) {
@@ -75,9 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
             }
           },
         ),
-        // We need a separate submit button because flutter_driver integration
-        // test doesn't support submitting a TextField using "enter" key.
-        // See https://github.com/flutter/flutter/issues/9383
         floatingActionButton: FloatingActionButton(
           key: Key('submit'),
           onPressed: () => _addNote(_noteInputController.text),
@@ -127,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
   GestureDetector Function(BuildContext, int) _itemBuilder(
       List<ParentDomain> notes) {
     return (BuildContext context, int index) => GestureDetector(
-          onTap: () => parentUseCase.destroy(notes[index]),
+          onTap: () => ObjectBoxCoreModule.PARENT_USECASE.destroy(notes[index]),
           child: Row(
             children: <Widget>[
               Expanded(
