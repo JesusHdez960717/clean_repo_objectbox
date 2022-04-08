@@ -3,21 +3,27 @@ description: Demonstrates how to use the clean_repo_objectbox plugin.
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
-  flutter: ">=2.8.0"
+  sdk: ">=2.16.2 <3.0.0"
+  flutter: ">=2.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+  #for example
   intl: ^0.17.0
   faker: ^2.0.0
-  objectbox: ^1.4.0
-  objectbox_flutter_libs: ^1.4.0
-  path_provider: ^2.0.3
+
+  #DB
+  objectbox: ^1.4.1
+  objectbox_flutter_libs: ^1.4.1
   flat_buffers: ^2.0.5
+  path_provider: ^2.0.9
 
-  clean_core: ^1.2.3-RELEASE.20220206
+  #Architecture
+  clean_core: ^1.3.3-RELEASE.20220407
 
+  #DB clean
   clean_repo_objectbox:
     path: ../
 
@@ -27,7 +33,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^1.0.0
-  objectbox_generator: ^1.4.0
+  #DB code generation
+  build_runner: ^2.1.8
+  objectbox_generator: ^1.4.1
+
+  #flutter pub run dependency_validator
+  dependency_validator: ^3.1.2
 
 flutter:
