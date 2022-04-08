@@ -1,3 +1,8 @@
+* 1.0.0-RELEASE.20220407:
+    * **IMPROVEMENT** :raised_hands: : Upgrade Gradle/Kotlin plugin versions.
+    * **IMPROVEMENT** :raised_hands: : Upgrade packages dependencies.
+    * **NEW** :+: : Upgrade `clean_core` to 1.3.3 and add to `DefaultObjectBoxCRUDRepositoryExternal` the remove by id.
+
 * 0.2.1-SNAPSHOT.20220223: Added `flat_buffers` to `pubspec.yaml` to publish
 
 * 0.2.0-SNAPSHOT.20220223: Added Key/Value built in repo
