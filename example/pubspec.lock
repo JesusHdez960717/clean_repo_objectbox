@@ -119,7 +119,7 @@ packages:
       name: clean_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0-RELEASE.20220407"
+    version: "1.3.3-RELEASE.20220407"
   clean_repo_objectbox:
     dependency: "direct main"
     description:
