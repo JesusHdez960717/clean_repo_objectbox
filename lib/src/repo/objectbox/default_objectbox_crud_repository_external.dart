@@ -38,11 +38,16 @@ class DefaultObjectBoxCRUDRepositoryExternal<Entity extends BasicEntityObject>
     return entity;
   }
 
-  Entity destroy(Entity objectToDestroy) {
+  @override
+  void destroy(Entity objectToDestroy) {
     ///destroy action in the box
     _box.remove(objectToDestroy.id);
+  }
 
-    return objectToDestroy;
+  @override
+  void destroyById(int id) {
+    ///destroy action in the box
+    _box.remove(id);
   }
 
   Entity findBy(int keyId) => _box.get(keyId)!;
