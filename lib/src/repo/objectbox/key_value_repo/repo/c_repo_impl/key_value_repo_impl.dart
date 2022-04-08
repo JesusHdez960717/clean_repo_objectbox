@@ -1,14 +1,17 @@
 import 'package:clean_core/clean_core.dart';
 import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value_exporter.dart';
 
-class KeyValueRepoImpl extends DefaultCRUDRepo<KeyValueDomain, KeyValueEntity>
-    implements KeyValueRepo {
+class KeyValueRepoImpl extends DefaultCRUDRepo<KeyValueDomain, KeyValueEntity,
+    KeyValueRepoExternal> implements KeyValueRepo {
   KeyValueRepoImpl(KeyValueRepoExternal repo)
-      : super(externalRepo: repo, converter: KeyValueConverter.converter);
+      : super(
+          externalRepo: repo,
+          converter: KeyValueConverter.converter,
+        );
 }
 
 class KeyValueConverter
-    extends DefaultGeneralConverter<KeyValueDomain, KeyValueEntity> {
+    extends GeneralConverter<KeyValueDomain, KeyValueEntity> {
   static final KeyValueConverter converter = KeyValueConverter._();
 
   KeyValueConverter._();
