@@ -18,7 +18,8 @@ dependencies:
   path_provider: ^2.0.9
 
   #Architecture
-  clean_core: ^1.3.3-RELEASE.20220407
+  clean_core:
+    path: ../clean-core-flutter
 
 dev_dependencies:
   flutter_test:
