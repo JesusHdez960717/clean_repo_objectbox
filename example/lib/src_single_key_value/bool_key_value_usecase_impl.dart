@@ -11,35 +11,11 @@ class BoolKeyValueUseCaseImpl extends SingleKeyValueUseCaseImpl<String, bool>
       : super(
           key: KEY,
           defaultValue: DEFAULT_VALUE,
-          repo: KeyValueRepoModule.buildKeyValueRepo(
-            converter: BoolKeyValueConverter.converter,
-            key: KEY,
-          ),
+          converter: BoolKeyValueConverter.converter,
         );
 
   @override
   bool changeValue() {
-    return update(!read());
-  }
-}
-
-class BoolKeyValueConverter implements SingleKeyValueConverter<String, bool> {
-  static final BoolKeyValueConverter converter = BoolKeyValueConverter._();
-
-  BoolKeyValueConverter._();
-
-  @override
-  String keyToString(String key) {
-    return key;
-  }
-
-  @override
-  bool stringToValue(String value) {
-    return value.toLowerCase() == 'true' ? true : false;
-  }
-
-  @override
-  String valueToString(bool value) {
-    return value ? 'true' : 'false';
+    return update(!read()!);
   }
 }

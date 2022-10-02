@@ -13,35 +13,11 @@ class IntKeyValueUseCaseImpl extends SingleKeyValueUseCaseImpl<String, int>
       : super(
           key: KEY,
           defaultValue: DEFAULT_VALUE,
-          repo: KeyValueRepoModule.buildKeyValueRepo(
-            converter: IntKeyValueConverter.converter,
-            key: KEY,
-          ),
+          converter: IntDefaultConverter.converter,
         );
 
   @override
   int changeValue() {
     return update(Random().nextInt(5000));
-  }
-}
-
-class IntKeyValueConverter implements SingleKeyValueConverter<String, int> {
-  static final IntKeyValueConverter converter = IntKeyValueConverter._();
-
-  IntKeyValueConverter._();
-
-  @override
-  String keyToString(String key) {
-    return key;
-  }
-
-  @override
-  int stringToValue(String value) {
-    return int.parse(value);
-  }
-
-  @override
-  String valueToString(int value) {
-    return value.toString();
   }
 }
