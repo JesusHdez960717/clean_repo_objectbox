@@ -1,5 +1,5 @@
-import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value_exporter.dart';
 import 'package:objectbox/objectbox.dart';
+import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
 class SingleKeyValueRepoExternalImpl extends SingleKeyValueRepoExternal {
   final Box<KeyValueEntity> _box;
@@ -11,7 +11,18 @@ class SingleKeyValueRepoExternalImpl extends SingleKeyValueRepoExternal {
 
   @override
   String? read(String key) {
-    return _read(key)?.value;
+    KeyValueEntity? readed = _read(key);
+    return readed == null ? null : readed!.value;
+  }
+
+  KeyValueEntity? _read(String key) {
+    //busco el KeyValueEntity que tenga esa llave
+    return _box
+        .query(
+      KeyValueEntity_.key.equals(key),
+    )
+        .build()
+        .findUnique();
   }
 
   @override
@@ -32,18 +43,8 @@ class SingleKeyValueRepoExternalImpl extends SingleKeyValueRepoExternal {
     return value;
   }
 
-  KeyValueEntity? _read(String key) {
-    //busco el KeyValueEntity que tenga esa llave
-    return _box
-        .query(
-          KeyValueEntity_.key.equals(key),
-        )
-        .build()
-        .findUnique();
-  }
-
   @override
-  String? destroy(String key) {
+  void destroy(String key) {
     //busco el entity ya existente
     final entity = _read(key);
 
@@ -51,7 +52,6 @@ class SingleKeyValueRepoExternalImpl extends SingleKeyValueRepoExternal {
     if (entity != null) {
       _box.remove(entity.id);
     }
-    return entity?.value;
   }
 
   @override

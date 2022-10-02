@@ -1,5 +1,5 @@
 import 'package:clean_core/clean_core.dart';
-import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value_exporter.dart';
+import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
 class KeyValueRepoImpl extends DefaultCRUDRepo<KeyValueDomain, KeyValueEntity,
     KeyValueRepoExternal> implements KeyValueRepo {
@@ -8,6 +8,10 @@ class KeyValueRepoImpl extends DefaultCRUDRepo<KeyValueDomain, KeyValueEntity,
           externalRepo: repo,
           converter: KeyValueConverter.converter,
         );
+
+  KeyValueEntity? read(String key) {
+    return read(key);
+  }
 }
 
 class KeyValueConverter

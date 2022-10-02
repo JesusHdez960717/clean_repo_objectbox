@@ -1,4 +1,4 @@
-import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/app/key_value_app_exporter.dart';
+import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
 class DefaultSingleKeyValueUseCase<K, V> extends SingleKeyValueUseCase<K, V> {
   final K key;
@@ -12,5 +12,5 @@ class DefaultSingleKeyValueUseCase<K, V> extends SingleKeyValueUseCase<K, V> {
 
   V update(V value) => repo.update(value);
 
-  V destroy() => repo.destroy();
+  void destroy() => repo.destroy();
 }
