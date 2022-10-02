@@ -4,8 +4,8 @@ version: 1.0.0-RELEASE.20220407
 homepage: https://github.com/JesusHdezWaterloo/clean_repo_objectbox
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
-  flutter: ">=2.10.0"
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -18,8 +18,7 @@ dependencies:
   path_provider: ^2.0.9
 
   #Architecture
-  clean_core:
-    path: ../clean-core-flutter
+  clean_core: 1.3.4-SNAPSHOT.20221002
 
 dev_dependencies:
   flutter_test:
