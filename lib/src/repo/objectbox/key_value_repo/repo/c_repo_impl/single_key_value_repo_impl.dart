@@ -1,4 +1,4 @@
-import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value_exporter.dart';
+import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
 class SingleKeyValueRepoImpl<K, V> extends SingleKeyValueRepo<K, V> {
   final K key;
@@ -29,14 +29,11 @@ class SingleKeyValueRepoImpl<K, V> extends SingleKeyValueRepo<K, V> {
       //ignoto el return xq el valor no se modifica en el proceso
       singleRepoExternal.update(_externalKey, externalValue);
     }
-    //devuelvo el mismo value, que no se odifica en ninguna parte del prceso
+    //devuelvo el mismo value, que no se modifica en ninguna parte del proceso
     return value;
   }
 
-  V? destroy() {
-    String? rawValue = singleRepoExternal.destroy(_externalKey);
-
-    //si el valor NO es null, lo convierto y devuelvo, si no devulvo el null
-    return rawValue != null ? converter.stringToValue(rawValue) : null;
+  void destroy() {
+    singleRepoExternal.destroy(_externalKey);
   }
 }
