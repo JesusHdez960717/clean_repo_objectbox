@@ -1,9 +1,9 @@
 import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
-class FloatDefaultConverter implements SingleKeyValueConverter<String, double> {
-  static final FloatDefaultConverter converter = FloatDefaultConverter._();
+class DoubleDefaultConverter implements SingleKeyValueConverter<String, double> {
+  static final DoubleDefaultConverter converter = DoubleDefaultConverter._();
 
-  FloatDefaultConverter._();
+  DoubleDefaultConverter._();
 
   @override
   String keyToString(String key) {

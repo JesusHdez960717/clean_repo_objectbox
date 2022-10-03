@@ -1,9 +1,9 @@
 import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
-class BoolKeyValueConverter implements SingleKeyValueConverter<String, bool> {
-  static final BoolKeyValueConverter converter = BoolKeyValueConverter._();
+class BoolDefaultConverter implements SingleKeyValueConverter<String, bool> {
+  static final BoolDefaultConverter converter = BoolDefaultConverter._();
 
-  BoolKeyValueConverter._();
+  BoolDefaultConverter._();
 
   @override
   String keyToString(String key) {

@@ -5,23 +5,29 @@ class SingleKeyValueUseCaseImpl<K, V> extends SingleKeyValueUseCase<K, V> {
   V? defaultValue;
 
   late SingleKeyValueRepo<K, V> _repo;
-  late SingleKeyValueConverter<K, V> _converter;
 
   SingleKeyValueUseCaseImpl({
     required this.key,
     required SingleKeyValueConverter<K, V> converter,
     this.defaultValue,
   }) {
-    _converter = converter;
     _repo = KeyValueRepoModule.buildKeyValueRepo(
       converter: converter,
       key: key,
     );
   }
 
+  V? reset() {
+    if (defaultValue != null) {
+      return update(defaultValue!);
+    } else {
+      _repo.destroy();
+      return null;
+    }
+  }
+
   @override
   void destroy() => _repo.destroy();
-
 
   @override
   V? read() {
