@@ -5,7 +5,7 @@ abstract class SingleKeyValueRepo<K, V> implements AbstractUseCase {
 
   V update(V value);
 
-  V? destroy();
+  void destroy();
 
   K get key;
 }

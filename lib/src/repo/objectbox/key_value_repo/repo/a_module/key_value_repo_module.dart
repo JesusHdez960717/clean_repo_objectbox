@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:clean_repo_objectbox/src/repo/objectbox/key_value_repo/key_value_exporter.dart';
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
+import 'package:clean_repo_objectbox/clean_objectbox_exporter.dart';
 
 class KeyValueRepoModule {
   static late final Store

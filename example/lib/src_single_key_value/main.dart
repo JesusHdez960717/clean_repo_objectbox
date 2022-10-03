@@ -62,10 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    ucBool.read().toString(),
+                    ucBool.read()!.toString(),
                   ),
                   Text(
-                    ucInt.read().toString(),
+                    ucInt.read()!.toString(),
                   ),
                   ...KeyValueCoreModule.keyValueUC
                       .findAll()
