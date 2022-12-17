@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "31.0.0"
+    version: "50.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.0"
+    version: "5.2.0"
   args:
     dependency: transitive
     description:
@@ -42,35 +42,35 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.3.1"
   build_config:
     dependency: transitive
     description:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.1"
   build_daemon:
     dependency: transitive
     description:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.1.0"
   build_resolvers:
     dependency: transitive
     description:
       name: build_resolvers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6"
+    version: "2.1.0"
   build_runner:
     dependency: "direct dev"
     description:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.8"
+    version: "2.3.3"
   build_runner_core:
     dependency: transitive
     description:
@@ -116,17 +116,10 @@ packages:
   clean_core:
     dependency: "direct main"
     description:
-      path: "../clean-core-flutter"
-      relative: true
-    source: path
-    version: "1.4.0-SNAPSHOT.20221217"
-  cli_util:
-    dependency: transitive
-    description:
-      name: cli_util
+      name: clean_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.5"
+    version: "1.4.0-SNAPSHOT.20221217"
   clock:
     dependency: transitive
     description:
@@ -140,7 +133,7 @@ packages:
       name: code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.3.0"
   collection:
     dependency: transitive
     description:
@@ -168,14 +161,14 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.4"
   dependency_validator:
     dependency: "direct dev"
     description:
       name: dependency_validator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.2.2"
   fake_async:
     dependency: transitive
     description:
@@ -232,7 +225,7 @@ packages:
       name: frontend_server_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "3.2.0"
   glob:
     dependency: transitive
     description:
@@ -281,7 +274,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.4.0"
+    version: "4.7.0"
   logging:
     dependency: transitive
     description:
@@ -323,21 +316,21 @@ packages:
       name: objectbox
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.1"
+    version: "1.7.0"
   objectbox_flutter_libs:
     dependency: "direct main"
     description:
       name: objectbox_flutter_libs
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.1"
+    version: "1.7.0"
   objectbox_generator:
     dependency: "direct dev"
     description:
       name: objectbox_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.1"
+    version: "1.7.0"
   package_config:
     dependency: transitive
     description:
@@ -353,12 +346,12 @@ packages:
     source: hosted
     version: "1.8.2"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.9"
+    version: "2.0.11"
   path_provider_android:
     dependency: transitive
     description:
@@ -401,13 +394,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.11.1"
   platform:
     dependency: transitive
     description:
@@ -475,7 +461,7 @@ packages:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.5"
+    version: "1.2.6"
   source_span:
     dependency: transitive
     description:
@@ -582,5 +568,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.17.0 <3.0.0"
+  dart: ">=2.18.0 <3.0.0"
   flutter: ">=3.0.0"
