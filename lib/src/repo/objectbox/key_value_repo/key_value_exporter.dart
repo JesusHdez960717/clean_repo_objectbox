@@ -1,5 +1,6 @@
 library key_value_exporter;
 
-export '../../../../objectbox.g.dart';
-export 'app/key_value_app_exporter.dart';
-export 'repo/key_value_repo_exporter.dart';
+export 'key_value_core_module.dart';
+
+export 'logic/key_value_logic_exporter.dart';
+export 'data/key_value_data_exporter.dart';

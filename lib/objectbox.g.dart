@@ -9,7 +9,7 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'src/repo/objectbox/key_value_repo/repo/b_entity/entities.dart';
+import 'src/repo/objectbox/key_value_repo/data/entity/key_value_entity.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
