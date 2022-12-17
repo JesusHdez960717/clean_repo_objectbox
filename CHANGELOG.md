@@ -1,3 +1,6 @@
+* 1.2.2-RELEASE.20221217:
+  * **DEPENDENCIES UPGRADE** :raised_hands: : Upgrade Objectbox dependency & Skip 1.2.2-RELEASE.20221217.
+
 * 1.2.0-RELEASE.20221217:
   * **REFACTOR** :architecture: : Upgrade Clean Core to `1.4.0-SNAPSHOT.20221217` and refactor architecture.
 
