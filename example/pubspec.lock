@@ -116,9 +116,9 @@ packages:
   clean_core:
     dependency: "direct main"
     description:
-      path: "../../clean-core-flutter"
-      relative: true
-    source: path
+      name: clean_core
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.4.0-SNAPSHOT.20221217"
   clean_repo_objectbox:
     dependency: "direct main"
