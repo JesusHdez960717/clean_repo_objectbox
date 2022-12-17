@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:clean_core/clean_core.dart';
 
 class ParentDomain extends BasicDomainObject {
@@ -8,7 +7,7 @@ class ParentDomain extends BasicDomainObject {
 
   ParentDomain({required this.name, required this.bornDay, this.id = 0});
 
-  String get bornDayFormat => DateFormat.yMMMd().format(bornDay);
+  String get bornDayFormat => bornDay.toString();
 
   @override
   String toString() {

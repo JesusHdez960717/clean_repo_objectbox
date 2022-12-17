@@ -7,7 +7,7 @@ import 'int_key_value_usecase.dart';
 import 'int_key_value_usecase_impl.dart';
 
 void main() =>
-    runApp(MyApp()); //flutter run -t lib/src_single_key_value/main.dart
+    runApp(MyApp()); //flutter run -t lib/features/single_key_value/main.dart
 
 class MyApp extends StatelessWidget {
   @override

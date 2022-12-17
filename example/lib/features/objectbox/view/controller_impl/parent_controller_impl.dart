@@ -16,7 +16,7 @@ class ParentControllerImpl extends ParentController {
         name: name,
         bornDay: DateTime.fromMicrosecondsSinceEpoch(
           Random().nextInt(
-            1000000000000000,
+            10000000,
           ),
         ),
       ),
