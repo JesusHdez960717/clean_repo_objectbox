@@ -11,13 +11,12 @@ dependencies:
     sdk: flutter
 
   #DB
-  objectbox: ^1.4.1
-  objectbox_flutter_libs: ^1.4.1
+  objectbox: ^1.7.0
+  objectbox_flutter_libs: ^1.7.0
   flat_buffers: ^2.0.5
-  path_provider: ^2.0.9
 
   #Architecture
-  clean_core: 1.4.0-SNAPSHOT.20221217
+  clean_core: ^1.4.0-SNAPSHOT.20221217
 
   #DB clean
   clean_repo_objectbox:
@@ -30,10 +29,10 @@ dev_dependencies:
     sdk: flutter
 
   #DB code generation
-  build_runner: ^2.1.8
-  objectbox_generator: ^1.4.1
+  build_runner: ^2.3.3
+  objectbox_generator: ^1.7.0
 
   #flutter pub run dependency_validator
-  dependency_validator: ^3.1.2
+  dependency_validator: ^3.2.2
 
 flutter:
