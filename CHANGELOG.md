@@ -1,3 +1,6 @@
+* 1.2.0-RELEASE.20221217:
+  * **REFACTOR** :architecture: : Upgrade Clean Core to `1.4.0-SNAPSHOT.20221217` and refactor architecture.
+
 * 1.1.0-RELEASE.20221002:
     * **IMPROVEMENT** :raised_hands: : Enhance single key-value repo. Add new abstract layers to
       decrease develop time.

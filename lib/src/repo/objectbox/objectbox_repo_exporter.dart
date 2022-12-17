@@ -1,5 +1,8 @@
 library objectbox_repo_exporter;
 
-export 'default_objectbox_crud_repository_external.dart';
+//pure object box
+export 'objectbox_crud_framework_repo.dart';
+export 'default_objectbox_crud_framework_repo.dart';
+
+//key value repo
 export 'key_value_repo/key_value_exporter.dart';
-export 'objectbox_crud_repository_external.dart';
