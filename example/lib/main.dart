@@ -1,7 +1,7 @@
+import 'dart:math';
+
 import 'package:clean_repo_objectbox_example/objectbox_example_exporter.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 //flutter pub run build_runner build
 void main() => runApp(MyApp()); //flutter run -t lib/main.dart
@@ -27,24 +27,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _noteInputController = TextEditingController();
 
-  final faker = Faker();
-
-  void _addNote(String text) {
-    if (text.isEmpty) return;
-    ObjectBoxExampleCoreModule.PARENT_USECASE.create(ParentDomain(
-        name: text,
-        bornDay: faker.date.dateTime(minYear: 1980, maxYear: 2000)));
-    _noteInputController.text = '';
-  }
-
   Future initialize() async {
-    await ObjectBoxExampleCoreModule.init();
+    await FeatureObjectboxModule.init();
   }
 
   @override
   void dispose() {
     _noteInputController.dispose();
-    ObjectBoxExampleCoreModule.PARENT_USECASE.streamController().close();
+    FeatureObjectboxModule.dispose();
     super.dispose();
   }
 
@@ -55,7 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: [
             IconButton(
               key: Key('submit'),
-              onPressed: () => _addNote(faker.person.name()),
+              onPressed: () =>
+                  FeatureObjectboxModule.PARENT_CONTROLLER.addParent(
+                "Chicho el cojo ${Random().nextInt(50000)}",
+              ),
               icon: Icon(Icons.add),
             )
           ],
@@ -74,7 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         floatingActionButton: FloatingActionButton(
           key: Key('submit'),
-          onPressed: () => _addNote(_noteInputController.text),
+          onPressed: () {
+            FeatureObjectboxModule.PARENT_CONTROLLER.addParent(
+              _noteInputController.text,
+            );
+            _noteInputController.clear();
+          },
           child: Icon(Icons.add),
         ),
       );
@@ -85,9 +83,14 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: TextField(
-            decoration: InputDecoration(hintText: 'Enter a new note'),
+            decoration: InputDecoration(hintText: 'Enter a new parent'),
             controller: _noteInputController,
-            onSubmitted: (value) => _addNote(_noteInputController.text),
+            onSubmitted: (value) {
+              FeatureObjectboxModule.PARENT_CONTROLLER.addParent(
+                _noteInputController.text,
+              );
+              _noteInputController.clear();
+            },
             // Provide a Key for the integration test
             key: Key('input'),
           ),
@@ -106,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         StreamBuilder<List<ParentDomain>>(
-          stream: ObjectBoxExampleCoreModule.PARENT_USECASE
+          stream: FeatureObjectboxModule.PARENT_CONTROLLER
               .streamController()
               .stream,
           builder: (context, snapshot) => ListView.builder(
@@ -124,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
       List<ParentDomain> notes) {
     return (BuildContext context, int index) => GestureDetector(
           onTap: () =>
-              ObjectBoxExampleCoreModule.PARENT_USECASE.delete(notes[index]),
+              FeatureObjectboxModule.PARENT_CONTROLLER.delete(notes[index]),
           child: Row(
             children: <Widget>[
               Expanded(
@@ -149,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Padding(
                           padding: EdgeInsets.only(top: 5.0),
                           child: Text(
-                            'Added on ${DateFormat.yMMMd().format(notes[index].bornDay)}',
+                            'Added on ${notes[index].bornDay.toString()}',
                             style: TextStyle(
                               fontSize: 12.0,
                             ),

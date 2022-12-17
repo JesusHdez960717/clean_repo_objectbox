@@ -25,6 +25,11 @@ class ParentRepoImpl
         .watch(triggerImmediately: true)
         .map((q) => ParentConverter.converter.toDomainAll(q.find()));
   }
+
+  @override
+  void dispose() {
+    streamController().close();
+  }
 }
 
 class ParentConverter extends GeneralConverter<ParentDomain, ParentEntity> {

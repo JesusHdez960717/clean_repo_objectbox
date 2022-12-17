@@ -10,4 +10,9 @@ class ParentUseCaseImpl extends DelegatedCRUDUseCase<ParentDomain, ParentRepo>
   StreamController<List<ParentDomain>> streamController() {
     return repo.streamController();
   }
+
+  @override
+  void dispose() {
+    repo.dispose();
+  }
 }
