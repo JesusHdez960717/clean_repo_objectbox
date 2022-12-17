@@ -116,10 +116,10 @@ packages:
   clean_core:
     dependency: "direct main"
     description:
-      name: clean_core
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.4-SNAPSHOT.20221002"
+      path: "../clean-core-flutter"
+      relative: true
+    source: path
+    version: "1.4.0-SNAPSHOT.20221217"
   cli_util:
     dependency: transitive
     description:
