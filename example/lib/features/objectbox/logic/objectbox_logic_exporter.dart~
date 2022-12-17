@@ -1,0 +1,9 @@
+library objectbox_logic_exporter;
+
+export 'domain/parent_domain.dart';
+export 'repo/parent_repo.dart';
+
+export 'objectbox_example_core_module.dart';
+export 'c_usecase_def/objectbox_example_use_case_exporter.dart';
+export 'd_usecase_impl/objectbox_example_usecase_impl_exporter.dart';
+export 'e_repo_def/objectbox_example_repodef_exporter.dart';

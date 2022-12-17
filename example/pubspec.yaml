@@ -21,7 +21,8 @@ dependencies:
   path_provider: ^2.0.9
 
   #Architecture
-  clean_core: 1.3.4-SNAPSHOT.20221002
+  clean_core:
+    path: ../../clean-core-flutter
 
   #DB clean
   clean_repo_objectbox:

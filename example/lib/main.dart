@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
       List<ParentDomain> notes) {
     return (BuildContext context, int index) => GestureDetector(
           onTap: () =>
-              ObjectBoxExampleCoreModule.PARENT_USECASE.destroy(notes[index]),
+              ObjectBoxExampleCoreModule.PARENT_USECASE.delete(notes[index]),
           child: Row(
             children: <Widget>[
               Expanded(
