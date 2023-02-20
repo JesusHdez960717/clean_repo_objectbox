@@ -15,4 +15,8 @@ class ParentUseCase {
   void dispose() {
     repo.dispose();
   }
+
+  ParentDomain create(ParentDomain parentDomain) => repo.create(parentDomain);
+
+  void delete(ParentDomain parent) => repo.delete(parent);
 }
