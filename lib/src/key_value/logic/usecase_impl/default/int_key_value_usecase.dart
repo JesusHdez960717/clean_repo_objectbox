@@ -1,8 +1,8 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-class DefaultIntKeyValueUseCaseImpl
+class IntKeyValueUseCase
     extends SingleKeyValueUseCaseImpl<String, int> {
-  DefaultIntKeyValueUseCaseImpl({
+  IntKeyValueUseCase({
     required String key,
     int? defaultValue,
   }) : super(

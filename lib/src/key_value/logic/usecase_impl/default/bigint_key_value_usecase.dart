@@ -1,8 +1,8 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-class DefaultBigIntKeyValueUseCaseImpl
+class BigIntKeyValueUseCase
     extends SingleKeyValueUseCaseImpl<String, BigInt> {
-  DefaultBigIntKeyValueUseCaseImpl({
+  BigIntKeyValueUseCase({
     required String key,
     BigInt? defaultValue,
   }) : super(

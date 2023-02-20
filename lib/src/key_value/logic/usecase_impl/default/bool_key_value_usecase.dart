@@ -1,8 +1,8 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-class DefaultBoolKeyValueUseCaseImpl extends SingleKeyValueUseCaseImpl<String, bool> {
+class BoolKeyValueUseCase extends SingleKeyValueUseCaseImpl<String, bool> {
 
-  DefaultBoolKeyValueUseCaseImpl({
+  BoolKeyValueUseCase({
     required String key,
     bool? defaultValue,
   }) : super(
