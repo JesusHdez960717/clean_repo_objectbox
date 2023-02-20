@@ -1,6 +1,5 @@
-import 'package:clean_core/clean_core.dart';
 
-abstract class SingleKeyValueUseCase<K, V> implements AbstractUseCase {
+abstract class SingleKeyValueUseCase<K, V> {
   V? read();
 
   V update(V value);

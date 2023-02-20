@@ -4,16 +4,12 @@ library key_value_logic_exporter;
 export 'domain/key_value_domain.dart';
 export 'domain/single_key_value_converter.dart';
 
-//repo
-export 'repo/key_value_repo.dart';
-export 'repo/single_key_value_repo.dart';
-
 //uc
-export 'usecase/key_value_use_case.dart';
+export 'usecase/key_value_usecase.dart';
 export 'usecase/single_key_value_usecase.dart';
 
 //uc impl
-export 'usecase_impl/key_value_use_case_impl.dart';
+export 'usecase_impl/key_value_usecase_impl.dart';
 export 'usecase_impl/single_key_value_usecase_impl.dart';
 export 'usecase_impl/default/key_value_usecase_impl_default_exporter.dart';
 

@@ -1,6 +1,4 @@
-import 'package:clean_core/clean_core.dart';
-
-class KeyValueDomain extends BasicDomainObject {
+class KeyValueDomain {
   int id;
   String key;
   String value;

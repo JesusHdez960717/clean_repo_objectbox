@@ -6,7 +6,9 @@ class KeyValueCoreModule {
   static Future init({String directory = ""}) async {
     await KeyValueDataModule.init(directory: directory);
 
-    keyValueUC = KeyValueUseCaseImpl(KeyValueDataModule.keyValueRepo);
+    keyValueUC = KeyValueUseCaseImpl(
+      repo: KeyValueDataModule.keyValueRepo,
+    );
   }
 
   static void dispose() {
