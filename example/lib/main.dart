@@ -28,13 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final _noteInputController = TextEditingController();
 
   Future initialize() async {
-    await FeatureObjectboxModule.init();
+    await FeatureObjectBoxModule.init();
   }
 
   @override
   void dispose() {
     _noteInputController.dispose();
-    FeatureObjectboxModule.dispose();
+    FeatureObjectBoxModule.dispose();
     super.dispose();
   }
 
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
             IconButton(
               key: Key('submit'),
               onPressed: () =>
-                  FeatureObjectboxModule.PARENT_CONTROLLER.addParent(
+                  FeatureObjectBoxModule.PARENT_CONTROLLER.addParent(
                 "Chicho el cojo ${Random().nextInt(50000)}",
               ),
               icon: Icon(Icons.add),
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButton: FloatingActionButton(
           key: Key('submit'),
           onPressed: () {
-            FeatureObjectboxModule.PARENT_CONTROLLER.addParent(
+            FeatureObjectBoxModule.PARENT_CONTROLLER.addParent(
               _noteInputController.text,
             );
             _noteInputController.clear();
@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: InputDecoration(hintText: 'Enter a new parent'),
             controller: _noteInputController,
             onSubmitted: (value) {
-              FeatureObjectboxModule.PARENT_CONTROLLER.addParent(
+              FeatureObjectBoxModule.PARENT_CONTROLLER.addParent(
                 _noteInputController.text,
               );
               _noteInputController.clear();
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         StreamBuilder<List<ParentDomain>>(
-          stream: FeatureObjectboxModule.PARENT_CONTROLLER
+          stream: FeatureObjectBoxModule.PARENT_CONTROLLER
               .streamController()
               .stream,
           builder: (context, snapshot) => ListView.builder(
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
       List<ParentDomain> notes) {
     return (BuildContext context, int index) => GestureDetector(
           onTap: () =>
-              FeatureObjectboxModule.PARENT_CONTROLLER.delete(notes[index]),
+              FeatureObjectBoxModule.PARENT_CONTROLLER.delete(notes[index]),
           child: Row(
             children: <Widget>[
               Expanded(

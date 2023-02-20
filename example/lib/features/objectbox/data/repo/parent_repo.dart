@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:clean_core/clean_core.dart';
+import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 import 'package:clean_repo_objectbox_example/objectbox_example_exporter.dart';
 
-class ParentRepoImpl
-    extends DelegatedCRUDRepo<ParentDomain, ParentEntity, ParentFrameworkRepo>
-    implements ParentRepo {
-  ParentRepoImpl(ParentFrameworkRepo repo)
+class ParentRepo extends DelegatedCRUDRepository<ParentDomain, ParentEntity,
+    ParentObjectBox> {
+  ParentRepo(ParentObjectBox repo)
       : super(externalRepo: repo, converter: ParentConverter.converter);
 
   StreamController<List<ParentDomain>> streamController() {
@@ -32,7 +31,7 @@ class ParentRepoImpl
   }
 }
 
-class ParentConverter extends GeneralConverter<ParentDomain, ParentEntity> {
+class ParentConverter extends Converter<ParentDomain, ParentEntity> {
   static final ParentConverter converter = ParentConverter._();
 
   ParentConverter._();

@@ -129,14 +129,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  clean_core:
-    dependency: "direct main"
-    description:
-      name: clean_core
-      sha256: "31bb5b8181a105eed4e879508e47a822095998efc843fc3f9ff0923d2756f4c8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.0-SNAPSHOT.20221217"
   clean_repo_objectbox:
     dependency: "direct main"
     description:
@@ -255,11 +247,6 @@ packages:
     version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
-    description: flutter
-    source: sdk
-    version: "0.0.0"
-  flutter_web_plugins:
-    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
