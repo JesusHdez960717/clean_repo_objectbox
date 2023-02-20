@@ -1,4 +1,4 @@
-///Standard for unique identifier of every domain.
+///Standard for unique identifier of every entity.
 mixin IntIdentifier {
   int get id;
 

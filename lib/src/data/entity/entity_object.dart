@@ -1,12 +1,11 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
 ///Simplest of all entity's objects
-///Entity that extends [EntityObject] with [IntIdentifier] and [Converter]<Domain>
+///Entity has [IntIdentifier] and [Comparable]<[EntityObject]>
 ///
 /// EXAMPLE:
-/// See [BasicDomainObject] for ParentDomain's example code.
 /// ```dart
-///   class ParentEntity extends Entity {
+///   class ParentEntity extends EntityObject {
 ///
 ///       int id;
 ///       String name;

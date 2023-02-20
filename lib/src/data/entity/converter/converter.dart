@@ -1,16 +1,13 @@
-
 ///General converter entity <==> domain, it generalize and extract the
 ///conversion entity => domain & domain => entity in a single isolated class
 ///
-///Default implementation of [GeneralConverter]
+///Default implementation of [Converter]
 ///
 /// EXAMPLE:
-/// See [BasicEntityObject] for ParentEntity's example code
-/// See [BasicDomainObject] for ParentDomain's example code
 ///
 /// ```dart
 /// class ParentConverter
-///     extends DefaultGeneralConverter<ParentDomain, ParentEntity> {
+///     extends Converter<ParentDomain, ParentEntity> {
 ///   @override
 ///   ParentDomain toDomain(ParentEntity entity) {
 ///     return ParentDomain(

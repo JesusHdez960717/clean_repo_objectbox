@@ -1,17 +1,12 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-///Default implementation of [CRUDRepository] of type Domain extends
-///[BasicDomainObject] & Entity extends [BasicEntityObject]<Domain>
-///It's basically a delegate to the External repo.
+///Default implementation of [CRUDRepository] of type Domain & Entity extends [EntityObject]
+///It's basically a delegate to the ObjectBox.
 ///
 /// EXAMPLE:
 /// This is the implementation of ParentRepo.
-/// See [BasicDomainObject] for ParentDomain's example code.
-/// See [BasicEntityObject] for ParentEntity's example code.
-/// See [CRUDRepository] for ParentRepo's example code.
 /// ```dart
-///   class ParentRepoImpl extends DefaultCRUDRepo<ParentDomain, ParentEntity>
-///       implements ParentRepo {
+///   class ParentRepo extends DelegatedCRUDRepository<ParentDomain, ParentEntity> {
 ///       @override
 ///       void doStuffInRepo(){
 ///         print('Doing Stuff in the repository layer...');

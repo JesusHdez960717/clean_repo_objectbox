@@ -3,16 +3,7 @@
 ///
 /// EXAMPLE:
 /// This is the definition of Parent CRUDRepository, it need to be
-/// implemented after, implementation example at [DefaultCRUDRepo].
-///
-/// See [Domain] for ParentDomain's example code.
-///
-/// ```dart
-///   abstract class ParentRepo extends CRUDRepository<ParentDomain> {
-///     //define in here the methods of this repo, implemented it [DefaultCRUDRepo]
-///     void doStuffInRepo();
-///   }
-/// ```
+/// implemented after.
 abstract class CRUDRepository<Domain> {
   ///Create the domain.
   Domain create(Domain newObject);

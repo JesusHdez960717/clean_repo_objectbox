@@ -2,13 +2,11 @@ import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
 /// EXAMPLE:
 /// This is the implementation of DefaultObjectBoxCRUDRepositoryExternal.
-/// See [ParentRepoExternal] for ParentRepoExternal's example code.
 ///
 /// ```dart
-///   class ParentRepoExternalImpl
-///       extends CRUDObjectBox<ParentEntity>
-///         implements ParentRepoExternal {
-///     ParentRepoExternalImpl(Store store) : super(store);
+///   class ParentObjectBox
+///       extends CRUDObjectBox_Impl<ParentEntity> {
+///     ParentObjectBox(Store store) : super(store);
 ///   }
 ///
 /// ```

@@ -1,15 +1,13 @@
-
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-///Default CRUD repository of type Entity extends [BasicEntityObject]
-///for External operations.
-///Implemented by the framework, the external library of persistence.
+///Default CRUD repository of type Entity extends [EntityObject]
+///for ObjectBox direct operations.
 ///
 /// EXAMPLE:
 /// ```dart
-///   class ParentRepoExternal
-///       extends CRUDObjectbox<ParentEntity> {
-///     ParentRepoExternal(Store store) : super(store);
+///   class ParentObjectBox
+///       extends CRUDObjectBox_Impl<ParentEntity> {
+///     ParentObjectBox(Store store) : super(store);
 ///   }
 /// ```
 abstract class CRUDObjectBox<Entity extends EntityObject> {
