@@ -7,17 +7,16 @@ import 'package:objectbox/objectbox.dart';
 ///
 /// ```dart
 ///   class ParentRepoExternalImpl
-///       extends DefaultObjectBoxCRUDRepositoryExternal<ParentEntity>
+///       extends CRUDObjectBox<ParentEntity>
 ///         implements ParentRepoExternal {
 ///     ParentRepoExternalImpl(Store store) : super(store);
 ///   }
 ///
 /// ```
-class DefaultObjectBoxCRUDFrameworkRepo<Entity extends BasicEntityObject>
-    extends CRUDRepositoryFramework<Entity> {
+class CRUDObjectBox<Entity extends BasicEntityObject> {
   final Box<Entity> _box;
 
-  DefaultObjectBoxCRUDFrameworkRepo(Store _store)
+  CRUDObjectBox(Store _store)
       : _box = Box<Entity>(_store);
 
   Box<Entity> get box => _box;
