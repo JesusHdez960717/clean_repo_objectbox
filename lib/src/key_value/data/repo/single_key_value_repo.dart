@@ -1,12 +1,12 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-class SingleKeyValueRepoImpl<K, V> extends SingleKeyValueRepo<K, V> {
+class SingleKeyValueRepo<K, V> {
   final K key;
   final SingleKeyValueConverter<K, V> converter;
-  final SingleKeyValueFrameworkRepo singleRepoExternal;
+  final SingleKeyValueObjectBox singleRepoExternal;
   final String _externalKey;
 
-  SingleKeyValueRepoImpl({
+  SingleKeyValueRepo({
     required this.converter,
     required this.key,
     required this.singleRepoExternal,

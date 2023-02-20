@@ -1,15 +1,14 @@
 import 'package:objectbox/objectbox.dart';
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
-class SingleKeyValueRepoExternalImpl extends SingleKeyValueFrameworkRepo {
+class SingleKeyValueObjectBox{
   final Box<KeyValueEntity> _box;
 
-  SingleKeyValueRepoExternalImpl(Store _store)
+  SingleKeyValueObjectBox(Store _store)
       : _box = Box<KeyValueEntity>(_store);
 
   Box<KeyValueEntity> get box => _box;
 
-  @override
   String? read(String key) {
     KeyValueEntity? readed = _read(key);
     return readed == null ? null : readed!.value;
@@ -25,7 +24,6 @@ class SingleKeyValueRepoExternalImpl extends SingleKeyValueFrameworkRepo {
         .findUnique();
   }
 
-  @override
   String update(String key, String value) {
     //busco el entity ya existente
     final entity = _read(key);
@@ -43,7 +41,6 @@ class SingleKeyValueRepoExternalImpl extends SingleKeyValueFrameworkRepo {
     return value;
   }
 
-  @override
   void destroy(String key) {
     //busco el entity ya existente
     final entity = _read(key);

@@ -1,8 +1,7 @@
-import 'package:clean_core/clean_core.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
 @Entity() //flutter pub run build_runner build
-class KeyValueEntity extends BasicEntityObject {
+class KeyValueEntity extends EntityObject {
   @Id()
   int id;
 

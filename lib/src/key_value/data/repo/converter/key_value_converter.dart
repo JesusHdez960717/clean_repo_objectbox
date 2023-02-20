@@ -1,8 +1,7 @@
-import 'package:clean_core/clean_core.dart';
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 
 class KeyValueConverter
-    extends GeneralConverter<KeyValueDomain, KeyValueEntity> {
+    extends Converter<KeyValueDomain, KeyValueEntity> {
   static final KeyValueConverter converter = KeyValueConverter._();
 
   KeyValueConverter._();

@@ -23,9 +23,11 @@ class KeyValueDataModule {
 
     _STORE = await openStore(directory: dbDir.path);
 
-    KeyValueFrameworkRepo keyValueExternalRepo =
-        KeyValueFrameworkRepoImpl(_STORE);
-    keyValueRepo = KeyValueRepoImpl(keyValueExternalRepo);
+    keyValueRepo = KeyValueRepo(
+      KeyValueObjectBox(
+        _STORE,
+      ),
+    );
 
     return _STORE != null;
   }
@@ -34,10 +36,10 @@ class KeyValueDataModule {
     required SingleKeyValueConverter<K, V> converter,
     required K key,
   }) {
-    return SingleKeyValueRepoImpl(
+    return SingleKeyValueRepo(
       converter: converter,
       key: key,
-      singleRepoExternal: SingleKeyValueRepoExternalImpl(_STORE),
+      singleRepoExternal: SingleKeyValueObjectBox(_STORE),
     );
   }
 
