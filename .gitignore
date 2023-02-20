@@ -17,3 +17,5 @@ example/.packages
 example/.pub/
 
 example/build/
+
+.fvm/flutter_sdk

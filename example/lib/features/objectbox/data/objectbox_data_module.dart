@@ -8,8 +8,13 @@ class ObjectBoxExampleRepoModule {
 
   static Future<Store> init() async {
     STORE = await openStore();
-    ParentFrameworkRepo external = ParentFrameworkRepoImpl(STORE);
-    PARENT_REPO = ParentRepoImpl(external);
+
+    PARENT_REPO = ParentRepo(
+      ParentObjectBox(
+        STORE,
+      ),
+    );
+
     return STORE;
   }
 

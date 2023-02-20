@@ -1,10 +1,9 @@
 import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
 import 'package:flutter/material.dart';
 
-import 'bool_key_value_usecase.dart';
-import 'bool_key_value_usecase_impl.dart';
-import 'int_key_value_usecase.dart';
-import 'int_key_value_usecase_impl.dart';
+
+import 'test_bool_key_value_usecase.dart';
+import 'test_int_key_value_usecase.dart';
 
 void main() =>
     runApp(MyApp()); //flutter run -t lib/features/single_key_value/main.dart
@@ -28,13 +27,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late BoolKeyValueUseCase ucBool;
-  late IntKeyValueUseCase ucInt;
+  late TestBoolKeyValueUseCase ucBool;
+  late TestIntKeyValueUseCase ucInt;
 
   Future initialize() async {
     await KeyValueCoreModule.init();
-    ucBool = BoolKeyValueUseCaseImpl();
-    ucInt = IntKeyValueUseCaseImpl();
+    ucBool = TestBoolKeyValueUseCase();
+    ucInt = TestIntKeyValueUseCase();
   }
 
   _changeValue() {

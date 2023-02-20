@@ -16,9 +16,6 @@ dependencies:
   objectbox_flutter_libs: ^1.7.0
   flat_buffers: ^2.0.5
 
-  #Architecture
-  clean_core: ^1.4.0-SNAPSHOT.20221217
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

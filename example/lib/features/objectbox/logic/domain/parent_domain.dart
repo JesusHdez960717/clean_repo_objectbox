@@ -1,6 +1,4 @@
-import 'package:clean_core/clean_core.dart';
-
-class ParentDomain extends BasicDomainObject {
+class ParentDomain {
   int id;
   String name;
   DateTime bornDay;

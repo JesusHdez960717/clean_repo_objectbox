@@ -1,0 +1,50 @@
+import 'dart:io';
+
+import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
+import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
+
+class KeyValueDataModule {
+  static late final Store
+      _STORE; //todo: posible null pointer, llamar primero al constructor
+
+  static const _KeyValueDir = "/key_value_dir";
+
+  static late KeyValueRepo keyValueRepo;
+
+  static Future<bool> init({String directory = ""}) async {
+    //obtiene el directorio por defecto
+    Directory defaultDir = await defaultStoreDirectory();
+
+    //se concatenan las direcciones
+    Directory dbDir = Directory('${defaultDir.path}$directory$_KeyValueDir');
+
+    //Se crea el directorio por si no está creado
+    dbDir = await dbDir.create(recursive: true);
+
+    _STORE = await openStore(directory: dbDir.path);
+
+    keyValueRepo = KeyValueRepo(
+      KeyValueObjectBox(
+        _STORE,
+      ),
+    );
+
+    return _STORE != null;
+  }
+
+  static SingleKeyValueRepo<K, V> buildKeyValueRepo<K, V>({
+    required SingleKeyValueConverter<K, V> converter,
+    required K key,
+  }) {
+    return SingleKeyValueRepo(
+      converter: converter,
+      key: key,
+      singleRepoExternal: SingleKeyValueObjectBox(_STORE),
+    );
+  }
+
+  static void dispose() {
+    keyValueRepo.dispose();
+    _STORE.close();
+  }
+}
