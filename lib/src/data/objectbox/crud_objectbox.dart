@@ -1,64 +1,43 @@
-import 'package:clean_core/clean_core.dart';
-import 'package:objectbox/objectbox.dart';
 
+import 'package:clean_repo_objectbox/clean_repo_objectbox.dart';
+
+///Default CRUD repository of type Entity extends [BasicEntityObject]
+///for External operations.
+///Implemented by the framework, the external library of persistence.
+///
 /// EXAMPLE:
-/// This is the implementation of DefaultObjectBoxCRUDRepositoryExternal.
-/// See [ParentRepoExternal] for ParentRepoExternal's example code.
-///
 /// ```dart
-///   class ParentRepoExternalImpl
-///       extends CRUDObjectBox<ParentEntity>
-///         implements ParentRepoExternal {
-///     ParentRepoExternalImpl(Store store) : super(store);
+///   class ParentRepoExternal
+///       extends CRUDObjectbox<ParentEntity> {
+///     ParentRepoExternal(Store store) : super(store);
 ///   }
-///
 /// ```
-class CRUDObjectBox<Entity extends BasicEntityObject> {
-  final Box<Entity> _box;
+abstract class CRUDObjectBox<Entity extends EntityObject> {
+  ///Create the entity.
+  Entity create(Entity newObject);
 
-  CRUDObjectBox(Store _store)
-      : _box = Box<Entity>(_store);
+  ///Edit the entity.
+  Entity edit(Entity objectToEdit);
 
-  Box<Entity> get box => _box;
+  ///Destroy the entity.
+  void delete(Entity objectToDestroy);
 
-  @override
-  Entity create(Entity newEntity) {
-    ///persist and get the new generated id
-    newEntity.id = _box.put(newEntity);
+  ///Destroy the entity by it's id.
+  void deleteById(int id);
 
-    return newEntity;
+  ///Find the correspondent entity by it's Key Id.
+  Entity? findById(int keyId);
+
+  ///Find all entity.
+  List<Entity> findAll();
+
+  ///Count the amount of entity.
+  ///By default calling the length of findAll().
+  int count() {
+    return findAll().length;
   }
 
-  @override
-  Entity edit(Entity entity) {
-    ///ignored return type, return type => id generated, in edit case, the id isn't generated
-    _box.put(entity); //must have [id] property != null && > 0
+  void init();
 
-    return entity;
-  }
-
-  @override
-  void delete(Entity objectToDestroy) {
-    ///destroy action in the box
-    _box.remove(objectToDestroy.id);
-  }
-
-  @override
-  void deleteById(int id) {
-    ///destroy action in the box
-    _box.remove(id);
-  }
-
-  Entity? findById(int keyId) => _box.get(keyId)!;
-
-  List<Entity> findAll() => _box.getAll();
-
-  @override
-  int count() => _box.count();
-
-  @override
-  void init() {}
-
-  @override
-  void dispose() {}
+  void dispose();
 }

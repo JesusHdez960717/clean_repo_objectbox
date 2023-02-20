@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-export 'src/repo/objectbox/objectbox_repo_exporter.dart';
+export 'src/data/objectbox/data_objectbox_exporter.dart';
+export 'src/data/entity/data_entity_exporter.dart';
+export 'src/data/repo/data_repo_exporter.dart';
 
 export 'objectbox.g.dart';
 

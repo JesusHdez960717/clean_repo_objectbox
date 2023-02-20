@@ -1,4 +1,4 @@
-library objectbox_repo_exporter;
+library data_objectbox_exporter;
 
 //pure object box
 export 'crud_objectbox.dart';
