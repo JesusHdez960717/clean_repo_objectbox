@@ -1,3 +1,6 @@
+* 2.0.0-SNAPSHOT.20230220:
+    * **REFACTOR** :architecture: : Refactor all plugin to a simplified architecture. See example for details
+
 * 1.2.2-RELEASE.20221217:
   * **DEPENDENCIES UPGRADE** :raised_hands: : Upgrade Objectbox dependency & Skip 1.2.2-RELEASE.20221217.
 
